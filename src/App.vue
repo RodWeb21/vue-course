@@ -1,16 +1,15 @@
 <script setup>
 import { ref } from 'vue';
 
-const number = ref(0);
+const myId = "patata";
 
-const addOne = () => {
-  number.value++;
-};
+const myValue = ref("some value");
 </script>
 
 <template>
-  <h1>Hello World</h1>
-  <h2 @click="addOne">{{ number }}</h2>
+  <h1 :id="myId">Hello World</h1>
+
+  <input type="text" :value="myValue">
 </template>
 
 <style scoped></style>
