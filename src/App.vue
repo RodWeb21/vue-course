@@ -1,12 +1,19 @@
 <script setup>
-import { ref } from 'vue';
-
-const myValue = ref("some value");
+let myCondition = true;
 </script>
 
 <template>
-  <h1>{{ myValue }}</h1>
-  <input type="text" v-model="myValue">
+  <!-- <h1 :class="myCondition ? 'hightlight' : 'red'">Hello World</h1> -->
+  <h1 :class="{hightlight: myCondition, red: true}">Hello World</h1>
 </template>
 
-<style scoped></style>
+<style scoped>
+.hightlight {
+  background-color: black;
+  color: yellow;
+}
+
+.red {
+  color: red;
+}
+</style>
