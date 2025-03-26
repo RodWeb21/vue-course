@@ -1,13 +1,14 @@
 <script setup>
-const condition = "";
-const condition2 = false;
+const movies = ["Lord of the Rings", "Star Wars", "Dune"];
 </script>
 
 <template>
-  <h1>Directiva v-if</h1>
-  <h2 v-if="condition">La condicion se cumple</h2>
-  <h2 v-else-if="condition2">Condicion 2</h2>
-  <h2 v-else>No se cumplen las condiciones</h2>
+  <h1>Renderizado de listas | v-for</h1>
+  <div>
+    <p v-for="movie in movies" :key="movie">
+      {{ movie }}
+    </p>
+  </div>
 </template>
 
 <style scoped></style>
