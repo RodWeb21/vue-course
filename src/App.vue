@@ -1,18 +1,20 @@
 <script setup>
+import { ref } from 'vue';
 import ChildComponent from './components/ChildComponent.vue';
 
-const text = 'Info desde variable en el padre';
-const person = {
-  sex: 'hombre',
-  age: 30
+const displayName = ref("");
+
+const setName = (e) => {
+  displayName.value = e;
 };
 </script>
 
 <template>
-  <h1>Props | Comunicación Padre-hijo</h1>
+  <h1>Component events | Comunicación hijo-Padre</h1>
 
-  <ChildComponent :msg="text" :person="person"></ChildComponent>
-  <ChildComponent msg="Otro mensaje"></ChildComponent>
+  <h2>Hola {{ displayName }}</h2>
+  
+  <ChildComponent @login="setName"></ChildComponent>
 </template>
 
 <style scoped></style>

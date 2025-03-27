@@ -1,18 +1,27 @@
 <script setup>
-  defineProps({
-    msg: String,
-    person: {
-      sex: String,
-      age: Number
-    }
-  })
+import { ref } from 'vue';
+
+const emit = defineEmits(["login"]);
+
+const userName = ref("Adrián");
+
+const login = () => {
+  emit("login", userName.value);
+};
 </script>
 
 <template>
-  <h2>Este es un componente hijo</h2>
+  <div class="child">
+    <h2>Este es un componente hijo</h2>
 
-  <p>{{ msg }}</p>
-  <div>{{ person?.sex }} - {{ person?.age }}</div>
+    <p>Nombre de usuario: {{ userName }}</p>
+
+    <button @click="login">Login</button>
+  </div>
 </template>
 
-<style></style>
+<style scoped>
+.child {
+  border: 5px solid black;
+}
+</style>
