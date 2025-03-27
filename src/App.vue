@@ -8,16 +8,13 @@ import ChildComponent from './components/ChildComponent.vue';
   <h2>Este es el componente  padre</h2>
   
   <ChildComponent>
-    <h3>Contenido desde el componente padre como slot</h3>
-
+    <template v-slot:top>
+      <h3>contenido para el slot top</h3>
+    </template>
+    <template v-slot:bottom>
+      <h3>slot para bottom</h3>
+    </template>
   </ChildComponent>
-  
-  <ChildComponent>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Lorem, ipsum dolor.</p>
-  </ChildComponent>
-
-  <ChildComponent></ChildComponent>
 </template>
 
 <style scoped></style>

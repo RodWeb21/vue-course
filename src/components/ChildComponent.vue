@@ -3,11 +3,11 @@
 
 <template>
   <div class="child">
+    <slot name="top"></slot>
+
     <h2>Este es un componente hijo</h2>
 
-    <slot>
-      <h4>Contendio por defecto por si desde el componente padre no se envía nada</h4>
-    </slot>
+    <slot name="bottom"></slot>
   </div>
 </template>
 
