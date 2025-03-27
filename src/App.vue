@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from 'vue';
+import { ref, watchEffect } from 'vue';
 
 const userName = ref("Adrián");
 
@@ -7,13 +7,9 @@ const setName = () => {
   userName.value = "María";
 };
 
-watch(
-  userName,
-  (newValue, oldValue) => {
-    console.log("User Name modified", newValue, oldValue);
-  },
-  {
-    immediate: true
+watchEffect(
+  () => {
+    console.log("User Name modified to: ", userName.value);
   }
 );
 </script>
