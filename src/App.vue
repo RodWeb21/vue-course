@@ -1,18 +1,29 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, ref, watch } from 'vue';
 
-const userName = ref("María");
-const nameLength = computed(() => {
-  return userName.value.length;
-});
+const userName = ref("Adrián");
+
+const setName = () => {
+  userName.value = "María";
+};
+
+watch(
+  userName,
+  (newValue, oldValue) => {
+    console.log("User Name modified", newValue, oldValue);
+  },
+  {
+    immediate: true
+  }
+);
 </script>
 
 <template>
-  <h1>Computed | Propiedades computadas</h1>
+  <h1>Watch | Vigilancia de cambios</h1>
 
-  <input type="text" v-model="userName">
   <h2>Hola {{ userName }}</h2>
-  <h3>Tu nombre tiene {{ nameLength }} letras</h3>
+
+  <button @click="setName">Cambiar de usuario</button>
 </template>
 
 <style scoped></style>
