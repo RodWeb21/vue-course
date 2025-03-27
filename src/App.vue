@@ -1,20 +1,23 @@
 <script setup>
-import { ref } from 'vue';
 import ChildComponent from './components/ChildComponent.vue';
-
-const displayName = ref("");
-
-const setName = (e) => {
-  displayName.value = e;
-};
 </script>
 
 <template>
-  <h1>Component events | Comunicación hijo-Padre</h1>
+  <h1>slots</h1>
 
-  <h2>Hola {{ displayName }}</h2>
+  <h2>Este es el componente  padre</h2>
   
-  <ChildComponent @login="setName"></ChildComponent>
+  <ChildComponent>
+    <h3>Contenido desde el componente padre como slot</h3>
+
+  </ChildComponent>
+  
+  <ChildComponent>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <p>Lorem, ipsum dolor.</p>
+  </ChildComponent>
+
+  <ChildComponent></ChildComponent>
 </template>
 
 <style scoped></style>
